@@ -1,12 +1,12 @@
 from colors import *
 class Picture:
-  def _init_(self, img):
+  def __init__(self, img):
     self.img = img;
 
-  def _eq_(self, other):
+  def __eq__(self, other):
     return self.img == other.img
 
-  def _invColor(self, color):
+  def invColor(self, color):
     if color not in inverter:
       return color
     return inverter[color]
@@ -29,7 +29,7 @@ class Picture:
     for row in self.img:
       negative_row=""
       for char in row:
-        negative_char=self._invColor(char)
+        negative_char=self.invColor(char)
         negative_row+=negative_char
       negative_img.append(negative_row)
     return Picture(negative_img)
